@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Sklep</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      background: #ff99cc;
+      color: white;
+      padding: 20px 0;
+      margin: 0 0 20px 0;
+    }
+    .category {
+      font-size: 22px;
+      margin: 20px 0 10px 0;
+      color: #333;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 10px;
+      width: 200px;
+      padding: 15px;
+      text-align: left;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      height: 120px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 10px 0 5px 0;
+      font-size: 18px;
+      color: #ff66aa;
+    }
+    .product p {
+      font-size: 14px;
+      color: #555;
+      height: 60px;
+      overflow: hidden;
+    }
+    .product button {
+      background: #ff66aa;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    #cart {
+      margin: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mój Mini Sklep</h1>
+
+  <div class="category">Kosmetyki</div>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3952248/pexels-photo-3952248.jpeg" alt="Krem do twarzy">
+      <h3>Krem do twarzy</h3>
+      <p>Delikatny krem nawilżający z witaminami, który wygładza skórę i przywraca blask, idealny do codziennej pielęgnacji.</p>
+      <p><strong>25 PLN</strong></p>
+      <button onclick="addToCart(25)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3768149/pexels-photo-3768149.jpeg" alt="Szampon">
+      <h3>Szampon</h3>
+      <p>Łagodny szampon do włosów suchych i normalnych. Zawiera proteiny i naturalne olejki, aby wzmocnić włosy.</p>
+      <p><strong>18 PLN</strong></p>
+      <button onclick="addToCart(18)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3768201/pexels-photo-3768201.jpeg" alt="Maska do włosów">
+      <h3>Maska do włosów</h3>
+      <p>Nawilżająca maska regenerująca suche końcówki, z keratyną i olejkiem arganowym dla miękkości i połysku.</p>
+      <p><strong>30 PLN</strong></p>
+      <button onclick="addToCart(30)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/4502149/pexels-photo-4502149.jpeg" alt="Balsam do ciała">
+      <h3>Balsam do ciała</h3>
+      <p>Kremowy balsam, szybko się wchłania i intensywnie nawilża skórę, pozostawiając przyjemny, subtelny zapach.</p>
+      <p><strong>22 PLN</strong></p>
+      <button onclick="addToCart(22)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3740630/pexels-photo-3740630.jpeg" alt="Pomadka">
+      <h3>Pomadka</h3>
+      <p>Kremowa pomadka o intensywnym kolorze, która zapewnia gładkość i subtelny połysk przez cały dzień.</p>
+      <p><strong>12 PLN</strong></p>
+      <button onclick="addToCart(12)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/4041456/pexels-photo-4041456.jpeg" alt="Tusz do rzęs">
+      <h3>Tusz do rzęs</h3>
+      <p>Długotrwała maskara pogrubiająca rzęsy, zapewnia objętość i podkręcenie bez zbrylania.</p>
+      <p><strong>28 PLN</strong></p>
+      <button onclick="addToCart(28)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3775174/pexels-photo-3775174.jpeg" alt="Cień do powiek">
+      <h3>Cień do powiek</h3>
+      <p>Paleta naturalnych cieni o jedwabistej konsystencji. Łatwe w aplikacji i długotrwałe na powiece.</p>
+      <p><strong>15 PLN</strong></p>
+      <button onclick="addToCart(15)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/4616461/pexels-photo-4616461.jpeg" alt="Perfumy">
+      <h3>Perfumy</h3>
+      <p>Lekki zapach damskich perfum z nutą kwiatową i owocową. Idealne na dzień i romantyczne wieczory.</p>
+      <p><strong>80 PLN</strong></p>
+      <button onclick="addToCart(80)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/4041454/pexels-photo-4041454.jpeg" alt="Krem do rąk">
+      <h3>Krem do rąk</h3>
+      <p>Kompaktowy krem do rąk z masłem shea, który odżywia skórę i łagodzi suchość po każdym użyciu.</p>
+      <p><strong>10 PLN</strong></p>
+      <button onclick="addToCart(10)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.pexels.com/photos/3771062/pexels-photo-3771062.jpeg" alt="Puder">
+      <h3>Puder</h3>
+      <p>Transparentny puder matujący, idealny do wykańczania makijażu, pozostawia skórę gładką i bez połysku.</p>
+      <p><strong>20 PLN</strong></p>
+      <button onclick="addToCart(20)">Kup</button>
+    </div>
+  </div>
+
+  <div class="category">Słodycze</div>
+  <div class="products">
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2016/03/27/22/22/candy-1283633_1280.jpg" alt="Czekolada z chili">
+      <h3>Czekolada z chili</h3>
+      <p>Gorzka czekolada z dodatkiem chili — doskonałe połączenie pikantności i słodyczy, idealne dla odważnych smakoszy.</p>
+      <p><strong>12 PLN</strong></p>
+      <button onclick="addToCart(12)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/10/23/18/05/lollipops-500924_1280.jpg" alt="Lizak owocowy">
+      <h3>Lizak owocowy</h3>
+      <p>Kolorowy lizak w owocowym smaku — klasyczny słodycz, który wraca do dzieciństwa za każdym liźnięciem.</p>
+      <p><strong>5 PLN</strong></p>
+      <button onclick="addToCart(5)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2017/07/31/11/21/jelly-candy-2551274_1280.jpg" alt="Żelki owocowe">
+      <h3>Żelki owocowe</h3>
+      <p>Miękkie żelki w kształcie owoców, pełne soczystych smaków — idealne na przekąskę lub mały deser.</p>
+      <p><strong>8 PLN</strong></p>
+      <button onclick="addToCart(8)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2015/10/12/15/41/cookies-984154_1280.jpg" alt="Ciastka z nadzieniem malinowym">
+      <h3>Ciastka malinowe</h3>
+      <p>Delikatne ciasteczka z malinowym nadzieniem — kruche, słodkie i idealne przy porannej herbacie.</p>
+      <p><strong>10 PLN</strong></p>
+      <button onclick="addToCart(10)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/02/11/chocolate-1869711_1280.jpg" alt="Trufle czekoladowe">
+      <h3>Trufle czekoladowe</h3>
+      <p>Eleganckie trufle z ciemnej czekolady — rozpływające się w ustach, wykonane z najlepszych składników.</p>
+      <p><strong>18 PLN</strong></p>
+      <button onclick="addToCart(18)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/12/10/18/16/marzipan-562743_1280.jpg" alt="Marcepan">
+      <h3>Marcepan</h3>
+      <p>Klasyczny marcepan o delikatnej teksturze i wyrazistym migdałowym smaku — idealny jako elegancki słodki upominek.</p>
+      <p><strong>15 PLN</strong></p>
+      <button onclick="addToCart(15)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2018/02/09/15/03/gumballs-3136242_1280.jpg" alt="Gumy balonowe">
+      <h3>Gumy balonowe</h3>
+      <p>Kolorowe gumy balonowe o owocowych smakach — klasyczny smak dzieciństwa, który daje radość i nostalgie.</p>
+      <p><strong>6 PLN</strong></p>
+      <button onclick="addToCart(6)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2017/01/12/14/39/chocolate-bar-1970201_1280.jpg" alt="Baton orzechowy">
+      <h3>Baton orzechowy</h3>
+      <p>Batony z orzechami i czekoladą — chrupiące, słodkie, idealne na szybkie zastrzyki energii w ciągu dnia.</p>
+      <p><strong>9 PLN</strong></p>
+      <button onclick="addToCart(9)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/12/15/13/40/mint-569763_1280.jpg" alt="Cukierki miętowe">
+      <h3>Cukierki miętowe</h3>
+      <p>Świeże cukierki miętowe dla ochłody — idealne po posiłku lub gdy potrzebujesz oddechu świeżości.</p>
+      <p><strong>7 PLN</strong></p>
+      <button onclick="addToCart(7)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2019/06/04/11/25/cookies-4257805_1280.jpg" alt="Ciastka imbirowe">
+      <h3>Ciastka imbirowe</h3>
+      <p>Korzenne ciasteczka z imbirem, które rozgrzewają i przypominają świąteczny klimat. Idealne do herbaty.</p>
+      <p><strong>12 PLN</strong></p>
+      <button onclick="addToCart(12)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2017/07/31/11/21/chocolate-chip-cookies-2551275_1280.jpg" alt="Ciastka czekoladowe">
+      <h3>Ciastka czekoladowe</h3>
+      <p>Świeże ciastka z kawałkami czekolady — miękkie w środku i lekko chrupiące na brzegach.</p>
+      <p><strong>12 PLN</strong></p>
+      <button onclick="addToCart(12)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2017/05/16/12/30/marshmallows-2312740_1280.jpg" alt="Mus owocowy">
+      <h3>Mus owocowy</h3>
+      <p>Delikatny mus owocowy w pucharku — naturalne owoce, aksamitna tekstura, słodka przekąska bez dodatków.</p>
+      <p><strong>9 PLN</strong></p>
+      <button onclick="addToCart(9)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2018/07/28/16/20/candy-3562987_1280.jpg" alt="Batony białkowe">
+      <h3>Batony białkowe</h3>
+      <p>Zdrowe batony białkowe z orzechami i czekoladą — świetne jako przekąska po treningu lub w podróży.</p>
+      <p><strong>13 PLN</strong></p>
+      <button onclick="addToCart(13)">Kup</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2016/04/06/09/39/gummy-bear-1319979_1280.jpg" alt="Żelki mix">
+      <h3>Żelki mix</h3>
+      <p>Kolorowe żelki w różnych kształtach i smakach — mieszanka owocowych i klasycznych żelków dla każdego.</p>
+      <p><strong>9 PLN</strong></p>
+      <button onclick="addToCart(9)">Kup</button>
+    </div>
+  </div>
+
+  <div id="cart">Łącznie w koszyku: 0 PLN</div>
+
+  <script>
+    let total = 0;
+    function addToCart(price) {
+      total += price;
+      document.getElementById('cart').textContent = "Łącznie w koszyku: " + total + " PLN";
+      alert("Produkt dodany do koszyka!");
+    }
+  </script>
+
+</body>
+</html>
